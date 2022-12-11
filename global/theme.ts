@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 export const theme = {
+  maxWidth: "69.375rem",
+  padding: "1.5rem",
   borderRadius: ".5rem",
   buttons: {
     primary: "#D87D4A",
@@ -93,7 +95,7 @@ h6 {
 }
 
 p{ 
-${({ theme }: any) => theme.typography.p};
+${({ theme }: any) => theme.typography.body};
 }
 
 .link {
