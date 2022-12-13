@@ -1,21 +1,35 @@
 import { createGlobalStyle } from "styled-components";
 
+export const colors = {
+  midBrown: "#D87D4A",
+  someBlack: "#101010",
+  greySilver: "#F1F1F1",
+  snowWhite: "#FAFAFA",
+  lightBrown: "#fbaf85",
+  black: "#000000",
+  white: "#FFFFFF",
+} as const;
+
 export const theme = {
   maxWidth: "69.375rem",
   padding: "1.5rem",
   borderRadius: ".5rem",
+  gap: {
+    primary: "1.5rem",
+    secondary: "2rem",
+  },
   buttons: {
     primary: "#D87D4A",
-    secondary: "##FFFFFF",
+    secondary: "#FFFFFF",
   },
   colors: {
-    midBrown: "##D87D4A",
-    someBlack: "##101010",
-    greySilver: "#F1F1F1",
-    snowWhite: "#FAFAFA",
-    lighBrown: "#fbaf85",
-    white: "#FFFFFF",
-    black: "#000000",
+    midBrown: colors.midBrown,
+    someBlack: colors.someBlack,
+    greySilver: colors.greySilver,
+    snowWhite: colors.snowWhite,
+    lighBrown: colors.lightBrown,
+    white: colors.white,
+    black: colors.black,
   },
   typography: {
     h1: {
