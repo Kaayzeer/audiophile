@@ -1,33 +1,45 @@
+import { NodeNextRequest } from "next/dist/server/base-http/node";
+import { MiddlewareNotFoundError } from "next/dist/shared/lib/utils";
 import { createGlobalStyle } from "styled-components";
-
-export const colors = {
-  midBrown: "#D87D4A",
-  someBlack: "#101010",
-  greySilver: "#F1F1F1",
-  snowWhite: "#FAFAFA",
-  lightBrown: "#fbaf85",
-  black: "#000000",
-  white: "#FFFFFF",
-} as const;
+import { colors } from "./colors";
 
 export const theme = {
   maxWidth: "69.375rem",
-  padding: "1.5rem",
+  padding: "0rem 1.5rem",
   borderRadius: ".5rem",
   gap: {
+    small: ".5rem",
+    medium: "1rem",
     primary: "1.5rem",
     secondary: "2rem",
   },
   buttons: {
-    primary: "#D87D4A",
-    secondary: "#FFFFFF",
+    primary: {
+      width: "min(100%, 15.9375rem)",
+      padding: "0.9375rem 1.875rem",
+      backgroundColor: colors.midBrown,
+      color: colors.white,
+      border: "none",
+    },
+    secondary: {
+      width: "min(100%, 15.9375rem)",
+      padding: "0.9375rem 1.875rem",
+      backgroundColor: colors.black,
+      border: `1px solid  ${colors.black}`,
+    },
+    tertiary: {
+      width: "auto",
+      backgroundColor: colors.transparent,
+      border: "none",
+    },
   },
   colors: {
     midBrown: colors.midBrown,
     someBlack: colors.someBlack,
     greySilver: colors.greySilver,
     snowWhite: colors.snowWhite,
-    lighBrown: colors.lightBrown,
+    lightBrown: colors.lightBrown,
+    bodyBlack: colors.bodyBlack,
     white: colors.white,
     black: colors.black,
   },
@@ -68,21 +80,9 @@ export const theme = {
       lineHeight: "24px",
       letterSpacing: "1.3px",
     },
-    overLine: {
-      fontSize: "0.875rem",
-      textTransform: "uppercase",
-      lineHeight: "19px",
-      letterSpacing: "10px",
-    },
-    subTitle: {
-      fontSize: "0.8125rem",
-      textTransform: "uppercase",
-      lineHeight: "25px",
-      letterSpacing: "1px",
-    },
     body: {
       fontSize: "0.9375rem",
-      lineHeight: "15px",
+      lineHeight: "25px",
     },
   },
 };
@@ -118,15 +118,21 @@ ${({ theme }: any) => theme.typography.body};
 }
 
 .overline {
-    ${({ theme }: any) => theme.typography.overline};
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  line-height: 19px;
+  letter-spacing: 10px;
 }
+
 .subTitle {
-    ${({ theme }: any) => theme.typography.subTitle};
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  line-height: 25px;
+  letter-spacing: 1px;
 }
 
 .flex-col {
   display: flex;
   flex-direction: column;
 }
-
 `;

@@ -3,15 +3,43 @@ import * as Layout from "./styled";
 
 type Props = {
   backgroundColor?: string;
-  children: ReactNode;
+  children?: ReactNode;
+  backImg?: boolean;
+  hero?: boolean;
+  grid?: number;
+  gap?: string;
 };
 
-const Container: FC<Props> = ({ backgroundColor, children }) => {
+export const Container: FC<Props> = ({
+  backgroundColor,
+  children,
+  backImg,
+  hero,
+}) => {
   return (
-    <Layout.Container backgroundColor={backgroundColor}>
+    <Layout.Container
+      backgroundColor={backgroundColor}
+      backImg={backImg}
+      hero={hero}
+    >
       <Layout.MaxWidth>{children}</Layout.MaxWidth>
     </Layout.Container>
   );
 };
 
-export default Container;
+export const GridContainer: FC<Props> = ({
+  backgroundColor,
+  children,
+  grid,
+  gap,
+}) => {
+  return (
+    <Layout.GridContainer
+      backgroundColor={backgroundColor}
+      grid={grid}
+      gap={gap}
+    >
+      {children}
+    </Layout.GridContainer>
+  );
+};
