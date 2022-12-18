@@ -5,6 +5,7 @@ import Layout from "../layouts/Layout";
 import { colors } from "../styles/colors";
 import Button from "../components/UI-Components/Buttons/Button";
 import ProductLinkCard from "../components/UI-Components/ProductLinkCards/ProductLinkCard";
+import Speaker from "../public/assets/home/desktop/image-speaker-zx9.png";
 import EarPhones from "../public/assets/shared/desktop/image-category-thumbnail-earphones.png";
 import Speakers from "../public/assets/shared/desktop/image-category-thumbnail-speakers.png";
 import HeadPhones from "../public/assets/shared/desktop/image-category-thumbnail-headPhones.png";
@@ -16,7 +17,7 @@ export default function Home() {
     <Layout
       backgroundColor={colors.bodyBlack}
       header={
-        <Container hero backImg>
+        <Container hero>
           <Header>
             <L.ArticleWrapper>
               <L.ArticleSubHeader className="overline">
@@ -37,11 +38,11 @@ export default function Home() {
       <Container>
         <GridContainer grid={3} gap="1.875rem">
           <ProductLinkCard>
-            <L.ImageWrapper marginTop="-5rem">
+            <L.ImageWrapper productLinkCardSection>
               <Image
                 src={HeadPhones}
                 alt="headphones"
-                width={123}
+                width={125}
                 height={160}
               />
             </L.ImageWrapper>
@@ -52,7 +53,7 @@ export default function Home() {
             <L.ArticleHeaderSix>headphones</L.ArticleHeaderSix>
           </ProductLinkCard>
           <ProductLinkCard>
-            <L.ImageWrapper marginTop="-4rem">
+            <L.ImageWrapper productLinkCardSection>
               <Image src={Speakers} alt="speakers" width={121} height={146} />
             </L.ImageWrapper>
             <Button tertiary>
@@ -62,8 +63,8 @@ export default function Home() {
             <L.ArticleHeaderSix>speakers</L.ArticleHeaderSix>
           </ProductLinkCard>
           <ProductLinkCard>
-            <L.ImageWrapper marginTop="-4rem">
-              <Image src={EarPhones} alt="earphones" width={125} height={126} />
+            <L.ImageWrapper productLinkCardSection>
+              <Image src={EarPhones} alt="earphones" width={178} height={161} />
             </L.ImageWrapper>
             <Button tertiary>
               shop
@@ -72,6 +73,22 @@ export default function Home() {
             <L.ArticleHeaderSix>earphones</L.ArticleHeaderSix>
           </ProductLinkCard>
         </GridContainer>
+      </Container>
+      <L.Divider size="10rem" />
+      <Container>
+        <L.Section backgroundColor={colors.midBrown} height="35rem">
+          <L.ImageWrapper speakerImgSection>
+            <Image src={Speaker} alt="speaker" width={300} height={400} />
+          </L.ImageWrapper>
+          <L.ArticleWrapper>
+            <L.ArticleHeader>ZX9 SPEAKER</L.ArticleHeader>
+            <L.ArticleBody>
+              Upgrade to premium speakers that are phenomenally built to deliver
+              truly remarkable sound.
+            </L.ArticleBody>
+            <Button fourthly>See Product</Button>
+          </L.ArticleWrapper>
+        </L.Section>
       </Container>
     </Layout>
   );

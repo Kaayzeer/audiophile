@@ -4,24 +4,14 @@ import * as Layout from "./styled";
 type Props = {
   backgroundColor?: string;
   children?: ReactNode;
-  backImg?: boolean;
   hero?: boolean;
   grid?: number;
   gap?: string;
 };
 
-export const Container: FC<Props> = ({
-  backgroundColor,
-  children,
-  backImg,
-  hero,
-}) => {
+export const Container: FC<Props> = ({ backgroundColor, children, hero }) => {
   return (
-    <Layout.Container
-      backgroundColor={backgroundColor}
-      backImg={backImg}
-      hero={hero}
-    >
+    <Layout.Container backgroundColor={backgroundColor} hero={hero}>
       <Layout.MaxWidth>{children}</Layout.MaxWidth>
     </Layout.Container>
   );

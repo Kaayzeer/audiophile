@@ -4,14 +4,17 @@ import { createGlobalStyle } from "styled-components";
 import { colors } from "./colors";
 
 export const theme = {
-  maxWidth: "69.375rem",
+  maxWidth: {
+    container: "90rem",
+    wrapper: "69.375rem",
+  },
   padding: "0rem 1.5rem",
   borderRadius: ".5rem",
   gap: {
     small: ".5rem",
     medium: "1rem",
     primary: "1.5rem",
-    secondary: "2rem",
+    secondary: "2.125rem",
   },
   buttons: {
     primary: {
@@ -24,12 +27,19 @@ export const theme = {
     secondary: {
       width: "min(100%, 15.9375rem)",
       padding: "0.9375rem 1.875rem",
-      backgroundColor: colors.black,
+      backgroundColor: colors.white,
       border: `1px solid  ${colors.black}`,
     },
     tertiary: {
       width: "auto",
       backgroundColor: colors.transparent,
+      border: "none",
+    },
+    fourthly: {
+      width: "min(100%, 15.9375rem)",
+      padding: "0.9375rem 1.875rem",
+      backgroundColor: colors.black,
+      color: colors.white,
       border: "none",
     },
   },
@@ -112,10 +122,11 @@ p{
 ${({ theme }: any) => theme.typography.body};
 }
 
-.link {
-    ${({ theme }: any) => theme.typography.p};
-    text-transform: uppercase;
+a {
+  ${({ theme }: any) => theme.typography.body};
+  text-transform: uppercase;
 }
+
 
 .overline {
   font-size: 0.875rem;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import hero from "../public/assets/home/desktop/image-hero.jpg";
-import { device } from "../styles/breakpoints";
+import * as styles from "../styles/styledCss";
 
 export const Body = styled.div<{ backgroundColor?: string }>`
   background: ${(props) => props.backgroundColor};
@@ -8,20 +8,19 @@ export const Body = styled.div<{ backgroundColor?: string }>`
 
 export const Container = styled.div<{
   backgroundColor?: string;
-  backImg?: boolean;
   hero?: boolean;
 }>`
-  width: min(100%, 1440px);
-  display: flex;
+  ${styles.flexRow}
   justify-content: center;
-  margin: 0 auto;
-  height: ${(props) => (props.hero ? "45.5625rem" : "auto")};
+  width: min(100%, ${(props) => props.theme.maxWidth.container});
   background-color: ${(props) => props.backgroundColor};
-  background-image: ${(props) => props.backImg && `url(${hero.src})`};
-  background-size: ${(props) => props.backImg && "cover"};
-  background-repeat: ${(props) => props.backImg && "no-repeat"};
-  background-position-y: ${(props) => props.backImg && "center"};
-  background-position-x: ${(props) => props.backImg && "left"};
+  ${(props) => props.hero && styles.hero};
+`;
+
+export const MaxWidth = styled.section`
+  width: min(100%, ${(props) => props.theme.maxWidth.wrapper});
+  padding: ${(props) => props.theme.padding};
+  margin: 0 auto;
 `;
 
 export const GridContainer = styled.div<{
@@ -29,21 +28,14 @@ export const GridContainer = styled.div<{
   backgroundColor?: string;
   gap?: string;
 }>`
-  background: ${(props) => props.backgroundColor};
   display: grid;
   grid-template-columns: repeat(${(props) => props.grid}, 1fr);
   gap: ${(props) => props.gap};
-`;
-
-export const MaxWidth = styled.section`
-  width: min(100%, ${(props) => props.theme.maxWidth});
-  padding: ${(props) => props.theme.padding};
-  margin: 0 auto;
+  background: ${(props) => props.backgroundColor};
 `;
 
 export const ArticleWrapper = styled.article<{}>`
-  display: flex;
-  flex-direction: column;
+  ${styles.flexCol}
   gap: ${(props) => props.theme.gap.primary};
   color: ${(props) => props.theme.colors.white};
   max-width: 25rem;
@@ -60,10 +52,26 @@ export const ArticleBody = styled.p`
 
 export const ArticleHeaderSix = styled.h6``;
 
-export const ImageWrapper = styled.picture<{ marginTop?: string }>`
-  margin-top: ${(props) => props.marginTop};
+export const ImageWrapper = styled.picture<{
+  productLinkCardSection?: boolean;
+  speakerImgSection?: boolean;
+}>`
+  ${(props) => props.productLinkCardSection && styles.productLinkCardSection}
+  ${(props) => props.speakerImgSection && styles.speakerImgSection}
 `;
 
 export const Divider = styled.div<{ size: string }>`
   height: ${(props) => props.size};
+`;
+
+export const Section = styled.section<{
+  backImg?: any;
+  backgroundColor?: string;
+  height?: string;
+}>`
+  ${styles.flexRowCenter}
+  border-radius: ${(props) => props.theme.borderRadius};
+  width: 100%;
+  background-color: ${(props) => props.backgroundColor};
+  height: ${(props) => props.height};
 `;

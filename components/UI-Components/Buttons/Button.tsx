@@ -7,11 +7,23 @@ type Props = {
   primary?: boolean;
   secondary?: boolean;
   tertiary?: boolean;
+  fourthly?: boolean;
 };
 
-const Button: FC<Props> = ({ children, primary, secondary, tertiary }) => {
+const Button: FC<Props> = ({
+  children,
+  primary,
+  secondary,
+  tertiary,
+  fourthly,
+}) => {
   return (
-    <B.Button primary={primary} secondary={secondary} tertiary={tertiary}>
+    <B.Button
+      primary={primary}
+      secondary={secondary}
+      tertiary={tertiary}
+      fourthly={fourthly}
+    >
       {children}
     </B.Button>
   );
