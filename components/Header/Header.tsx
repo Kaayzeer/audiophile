@@ -10,7 +10,7 @@ type Props = {
 const Header: FC<Props> = ({ backImg, children }) => {
   return (
     <H.Container backImg={backImg}>
-      <Navbar />
+      <Navbar borderBottom />
       {children}
     </H.Container>
   );

@@ -19,13 +19,14 @@ export const CartWrapper = styled.div`
   ${pointer};
 `;
 
-export const Nav = styled.nav`
+export const Nav = styled.nav<{ borderBottom?: boolean }>`
   ${flexRow};
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 96px;
-  border-bottom: 1px solid ${(props) => props.theme.colors.white};
+  border-bottom: ${(props) =>
+    props.borderBottom && `1px solid ${props.theme.colors.white}`};
 `;
 
 export const LinkWrapper = styled.ul`

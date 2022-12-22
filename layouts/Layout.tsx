@@ -19,7 +19,9 @@ const Layout: FC<Props> = ({ header, children, backgroundColor }) => {
       </Head>
       <Body backgroundColor={backgroundColor}>{header}</Body>
       {children}
-      <Footer />
+      <Body backgroundColor={backgroundColor}>
+        <Footer />
+      </Body>
     </>
   );
 };

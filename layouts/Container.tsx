@@ -5,14 +5,30 @@ type Props = {
   backgroundColor?: string;
   children?: ReactNode;
   hero?: boolean;
+  tableSpeaker?: boolean;
   grid?: number;
   gap?: string;
+  height?: string;
+  flexColAround?: boolean;
 };
 
-export const Container: FC<Props> = ({ backgroundColor, children, hero }) => {
+export const Container: FC<Props> = ({
+  backgroundColor,
+  children,
+  hero,
+  height,
+  flexColAround,
+  gap,
+}) => {
   return (
-    <Layout.Container backgroundColor={backgroundColor} hero={hero}>
-      <Layout.MaxWidth>{children}</Layout.MaxWidth>
+    <Layout.Container
+      backgroundColor={backgroundColor}
+      hero={hero}
+      height={height}
+    >
+      <Layout.MaxWidth flexColAround={flexColAround}>
+        {children}
+      </Layout.MaxWidth>
     </Layout.Container>
   );
 };

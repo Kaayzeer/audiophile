@@ -8,13 +8,24 @@ export const theme = {
     container: "90rem",
     wrapper: "69.375rem",
   },
+  dividerSize: {
+    small: "3rem",
+    large: "10rem",
+  },
   padding: "0rem 1.5rem",
   borderRadius: ".5rem",
+  height: {
+    medium: "20rem",
+    footer: "22.8125rem",
+    large: "35rem",
+    xLarge: "36.75rem",
+  },
   gap: {
     small: ".5rem",
     medium: "1rem",
+    large: "1.875rem",
     primary: "1.5rem",
-    secondary: "2.125rem",
+    secondary: "2rem",
   },
   buttons: {
     primary: {
@@ -27,7 +38,7 @@ export const theme = {
     secondary: {
       width: "min(100%, 15.9375rem)",
       padding: "0.9375rem 1.875rem",
-      backgroundColor: colors.white,
+      backgroundColor: colors.transparent,
       border: `1px solid  ${colors.black}`,
     },
     tertiary: {
@@ -125,25 +136,5 @@ ${({ theme }: any) => theme.typography.body};
 a {
   ${({ theme }: any) => theme.typography.body};
   text-transform: uppercase;
-}
-
-
-.overline {
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  line-height: 19px;
-  letter-spacing: 10px;
-}
-
-.subTitle {
-  font-size: 0.8125rem;
-  text-transform: uppercase;
-  line-height: 25px;
-  letter-spacing: 1px;
-}
-
-.flex-col {
-  display: flex;
-  flex-direction: column;
 }
 `;
