@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../styles/breakpoints";
 import { flexCol } from "../../../styles/styledCss";
 
 export const CardWrapper = styled.div<{ grid?: number }>`

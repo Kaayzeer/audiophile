@@ -1,6 +1,10 @@
 import Header from "../components/Header/Header";
 import * as L from "../layouts/styled";
-import { Container, GridContainer } from "../layouts/Container";
+import {
+  Container,
+  GridContainer,
+  ProductGridContainer,
+} from "../layouts/Container";
 import Layout from "../layouts/Layout";
 import { colors } from "../styles/colors";
 import Button from "../components/UI-Components/Buttons/Button";
@@ -10,6 +14,8 @@ import Speaker from "../public/assets/home/desktop/image-speaker-zx9.png";
 import BestGear from "../public/assets/shared/desktop/image-best-gear.jpg";
 import Image from "next/image";
 import { theme } from "../styles/theme";
+import { productLinks, ProductLinks } from "../constants/links";
+import { Fragment } from "react";
 
 export default function Home() {
   return (
@@ -33,9 +39,13 @@ export default function Home() {
     >
       <L.Divider size={theme.dividerSize.large} />
       <Container>
-        <GridContainer grid={3} gap={theme.gap.large}>
-          <ProductLinkCards />
-        </GridContainer>
+        <ProductGridContainer responsive>
+          {productLinks.map((link: ProductLinks) => (
+            <Fragment key={link.name}>
+              <ProductLinkCards link={link} />
+            </Fragment>
+          ))}
+        </ProductGridContainer>
       </Container>
       <L.Divider size={theme.dividerSize.large} />
       <Container>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import hero from "../public/assets/home/desktop/image-hero.jpg";
+import { device } from "../styles/breakpoints";
 import * as styles from "../styles/styledCss";
 
 export const Body = styled.div<{ backgroundColor?: string }>`
@@ -22,22 +22,58 @@ export const Container = styled.div<{
   ${(props) => props.hero && styles.hero};
 `;
 
-export const MaxWidth = styled.section<{ flexColAround?: boolean }>`
+export const FooterContainer = styled.div<{
+  backgroundColor?: string;
+  hero?: boolean;
+  height?: string;
+  flexColBetween?: boolean;
+}>`
+  ${styles.flexRow}
+  padding: 2rem;
+  margin: 0 auto;
+  justify-content: center;
+  width: min(100%, ${(props) => props.theme.maxWidth.container});
+  background-color: ${(props) => props.backgroundColor};
+  height: ${(props) => props.height};
+  ${(props) => props.hero && styles.hero};
+`;
+
+export const MaxWidth = styled.section<{
+  flexColAround?: boolean;
+  gap?: string;
+}>`
   width: min(100%, ${(props) => props.theme.maxWidth.wrapper});
   padding: ${(props) => props.theme.padding};
   margin: 0 auto;
   ${(props) => props.flexColAround && styles.flexColAround};
+  gap: ${(props) => props.gap};
+`;
+
+export const ProductGridContainer = styled.div<{
+  responsive?: boolean;
+}>`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: ${(props) => props.responsive && props.theme.gap.fourthly};
+
+  @media (${device.tablet}) {
+    grid-template-columns: repeat(${(props) => props.responsive && 3}, 1fr);
+    gap: ${(props) => props.responsive && props.theme.gap.large};
+  }
 `;
 
 export const GridContainer = styled.div<{
   grid?: number;
-  backgroundColor?: string;
   gap?: string;
 }>`
   display: grid;
   grid-template-columns: repeat(${(props) => props.grid}, 1fr);
   gap: ${(props) => props.gap};
-  background: ${(props) => props.backgroundColor};
+
+  /*   @media (${device.tablet}) {
+    grid-template-columns: repeat(${(props) => props.responsive && 3}, 1fr);
+    gap: ${(props) => props.responsive && props.theme.gap.large};
+  } */
 `;
 
 export const ArticleWrapper = styled.article<{
@@ -54,14 +90,32 @@ export const ArticleWrapper = styled.article<{
 export const FooterArticleWrapper = styled.article<{
   color?: string;
 }>`
-  ${styles.flexRowBetween}
+  ${styles.flexColBetween}
   color: ${(props) => props.color};
   gap: ${(props) => props.theme.gap.primary};
+  text-align: center;
+
+  @media (${device.tablet}) {
+    ${styles.flexRowBetween}
+  }
 `;
 
-export const SocialMediaSection = styled.div`
-  ${styles.flexRow};
+export const SocialMediaLaptopSection = styled.div`
+  display: none;
+  @media (${device.laptop}) {
+    ${styles.flexRow};
+    gap: ${(props) => props.theme.gap.primary};
+  }
+`;
+
+export const SocialMediaMobileSection = styled.div`
+  ${styles.flexRowCenter};
   gap: ${(props) => props.theme.gap.primary};
+
+  @media (${device.laptop}) {
+    ${styles.flexRow};
+    display: none;
+  }
 `;
 
 export const ArticleSubHeader = styled.div`
@@ -85,10 +139,23 @@ export const ArticleBody = styled.p`
 
 export const ArticleFooterBody = styled.p`
   max-width: 33.75rem;
+  padding: 2rem 0rem;
+  @media (${device.tablet}) {
+    text-align: left;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  @media (${device.laptop}) {
+    max-width: 33.75rem;
+  }
 `;
 
-export const CopyRight = styled.p<{ color: string }>`
-  color: ${(props) => props.color};
+export const CopyRight = styled.p`
+  text-align: center;
+  @media (${device.tablet}) {
+    text-align: left;
+  }
 `;
 
 export const ArticleHeaderSix = styled.h6``;

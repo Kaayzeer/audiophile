@@ -16,7 +16,6 @@ export const theme = {
   borderRadius: ".5rem",
   height: {
     medium: "20rem",
-    footer: "22.8125rem",
     large: "35rem",
     xLarge: "36.75rem",
   },
@@ -26,6 +25,8 @@ export const theme = {
     large: "1.875rem",
     primary: "1.5rem",
     secondary: "2rem",
+    tertiary: "3rem",
+    fourthly: "4rem",
   },
   buttons: {
     primary: {

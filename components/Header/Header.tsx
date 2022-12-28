@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import * as H from "./styled";
-import Navbar from "./Navbar";
+import { Navbar } from "./Navbar";
 
 type Props = {
   children?: ReactNode;

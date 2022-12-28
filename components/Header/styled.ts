@@ -1,7 +1,15 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { pointer } from "../../styles/styledCss";
-import { flexCol, flexRow, buttonAndNavStyles } from "../../styles/styledCss";
+import {
+  flexCol,
+  flexRow,
+  buttonAndNavStyles,
+  flexRowBetween,
+  flexColBetween,
+  flexColStartBetween,
+} from "../../styles/styledCss";
+import { device } from "../../styles/breakpoints";
 
 export const Container = styled.header<{
   backImg?: boolean;
@@ -15,26 +23,72 @@ export const LogoWrapper = styled.div`
   ${pointer}
 `;
 
+export const HamburgerWrapper = styled.div`
+  ${pointer}
+  @media (${device.tablet}) {
+    display: none;
+  }
+`;
+
 export const CartWrapper = styled.div`
   ${pointer};
 `;
 
-export const Nav = styled.nav<{ borderBottom?: boolean }>`
+export const Nav = styled.nav<{ borderBottom?: boolean; center?: boolean }>`
   ${flexRow};
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.center && "center") ?? "space-between"};
   width: 100%;
   height: 96px;
   border-bottom: ${(props) =>
     props.borderBottom && `1px solid ${props.theme.colors.white}`};
+
+  @media (${device.tablet}) {
+    justify-content: space-between;
+  }
+`;
+
+export const FooterNav = styled.nav<{
+  borderBottom?: boolean;
+  center?: boolean;
+}>`
+  ${flexColBetween};
+  gap: 2rem;
+  align-items: center;
+  justify-content: ${(props) => (props.center && "center") ?? "space-between"};
+  width: 100%;
+  border-bottom: ${(props) =>
+    props.borderBottom && `1px solid ${props.theme.colors.white}`};
+
+  @media (${device.tablet}) {
+    ${flexColStartBetween};
+  }
+
+  @media (${device.laptop}) {
+    ${flexRowBetween};
+    gap: 0;
+  }
 `;
 
 export const LinkWrapper = styled.ul`
-  ${flexRow};
-  justify-content: space-between;
+  display: none;
+  @media (${device.tablet}) {
+    ${flexRowBetween};
+    ${pointer}
+    gap: ${(props) => props.theme.gap.secondary};
+    color: ${(props) => props.theme.colors.white};
+  }
+`;
+
+export const FooterLinkWrapper = styled.ul`
+  ${flexColBetween};
+  ${pointer}
   gap: ${(props) => props.theme.gap.secondary};
   color: ${(props) => props.theme.colors.white};
-  ${pointer}
+
+  @media (${device.tablet}) {
+    ${flexRowBetween};
+  }
 `;
 
 export const Links = styled(Link)`

@@ -26,7 +26,7 @@ export const navLinks: string[] = [
   Links.EARPHONES,
 ];
 
-export const productLinks = [
+export const productLinks: Record<string, any> = [
   {
     img: productImages.HEADPHONES,
     name: productLinkNames.HEADPHONES,

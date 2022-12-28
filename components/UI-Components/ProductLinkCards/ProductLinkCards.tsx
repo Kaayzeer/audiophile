@@ -1,34 +1,29 @@
 import Image from "next/image";
-import React, { FC, Fragment, ReactNode } from "react";
+import React, { FC } from "react";
 import { Button } from "../Buttons/styled";
 import * as P from "./styled";
 import IconRight from "../../../public/assets/shared/desktop/icon-arrow-right.svg";
 import * as L from "../../../layouts/styled";
-import { ProductLinks, productLinks } from "../../../constants/links";
+import { ProductLinks } from "../../../constants/links";
+import { GridContainer } from "../../../layouts/Container";
+import { theme } from "../../../styles/theme";
 
-type Props = {};
+type Props = {
+  link: ProductLinks;
+};
 
-const ProductLinkCards: FC<Props> = ({}) => {
+const ProductLinkCards: FC<Props> = ({ link }) => {
   return (
-    <>
-      {productLinks.map((link: ProductLinks) => (
-        <P.CardWrapper key={link.name}>
-          <L.ImageWrapper productLinkCardSection>
-            <Image
-              src={`/${link.img}`}
-              alt={link.name}
-              width={125}
-              height={160}
-            />
-          </L.ImageWrapper>
-          <Button tertiary>
-            shop
-            <Image src={IconRight} alt="right-icon" />
-          </Button>
-          <L.ArticleHeaderSix>{link.text}</L.ArticleHeaderSix>
-        </P.CardWrapper>
-      ))}
-    </>
+    <P.CardWrapper>
+      <L.ImageWrapper productLinkCardSection>
+        <Image src={`/${link.img}`} alt={link.name} width={125} height={160} />
+      </L.ImageWrapper>
+      <Button tertiary>
+        shop
+        <Image src={IconRight} alt="right-icon" />
+      </Button>
+      <L.ArticleHeaderSix>{link.text}</L.ArticleHeaderSix>
+    </P.CardWrapper>
   );
 };
 

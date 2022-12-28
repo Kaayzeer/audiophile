@@ -38,6 +38,20 @@ export const flexRowBetween = css`
   justify-content: space-between;
 `;
 
+export const flexColBetween = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const flexColStartBetween = css`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+
 export const pointer = css`
   cursor: pointer;
 `;
