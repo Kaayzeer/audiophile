@@ -4,13 +4,12 @@ import { Navbar } from "./Navbar";
 
 type Props = {
   children?: ReactNode;
-  backImg?: boolean;
 };
 
-const Header: FC<Props> = ({ backImg, children }) => {
+const Header: FC<Props> = ({ children }) => {
   return (
-    <H.Container backImg={backImg}>
-      <Navbar borderBottom />
+    <H.Container>
+      <Navbar />
       {children}
     </H.Container>
   );

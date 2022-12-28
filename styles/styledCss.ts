@@ -1,6 +1,9 @@
 import { css } from "styled-components";
-import heroImg from "../public/assets/home/desktop/image-hero.jpg";
+import heroImgDesktop from "../public/assets/home/desktop/image-hero.jpg";
+import heroImgTablet from "../public/assets/home/tablet/image-header.jpg";
+import heroImgMobile from "../public/assets/home/mobile/image-header.jpg";
 import SpeakerWTable from "../public/assets/home/desktop/image-speaker-zx7.jpg";
+import { device } from "./breakpoints";
 
 export const flexCol = css`
   display: flex;
@@ -89,10 +92,24 @@ export const productLinkCardSection = css`
 
 export const hero = css`
   height: 45.5625rem;
-  background-image: url(${heroImg.src});
+  background-image: url(${heroImgMobile.src});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media (${device.tablet}) {
+    background-image: url(${heroImgTablet.src});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  @media (${device.laptop}) {
+    background-image: url(${heroImgDesktop.src});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 `;
 
 export const tableSpeaker = css`

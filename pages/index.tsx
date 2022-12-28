@@ -24,7 +24,7 @@ export default function Home() {
       header={
         <Container hero>
           <Header>
-            <L.ArticleWrapper color={colors.white}>
+            <L.ArticleWrapper color={colors.white} alignSelf="start">
               <L.ArticleSubHeader>NEW PRODUCT</L.ArticleSubHeader>
               <L.ArticleHeader>XX99 Mark II Headphones</L.ArticleHeader>
               <L.ArticleBody>

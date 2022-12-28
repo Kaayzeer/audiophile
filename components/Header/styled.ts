@@ -11,9 +11,7 @@ import {
 } from "../../styles/styledCss";
 import { device } from "../../styles/breakpoints";
 
-export const Container = styled.header<{
-  backImg?: boolean;
-}>`
+export const Container = styled.header<{}>`
   ${flexCol};
   gap: 20%;
   height: min(45.5625rem, 100%);

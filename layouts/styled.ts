@@ -72,12 +72,25 @@ export const GridContainer = styled.div<{
 export const ArticleWrapper = styled.article<{
   color?: string;
   marginLeft?: string;
+  alignSelf?: string;
 }>`
-  ${styles.flexCol}
-  margin-left: ${(props) => props.marginLeft};
+  ${styles.flexColBetween}
   gap: ${(props) => props.theme.gap.primary};
   color: ${(props) => props.color};
-  max-width: 25rem;
+  text-align: center;
+
+  @media (${device.tablet}) {
+    max-width: 23.7rem;
+    align-self: center;
+  }
+
+  @media (${device.laptop}) {
+    ${styles.flexColStartBetween}
+    margin-left: ${(props) => props.marginLeft};
+    max-width: 25rem;
+    text-align: left;
+    align-self: ${(props) => props.alignSelf ?? "center"};
+  }
 `;
 
 export const FooterArticleWrapper = styled.article<{
