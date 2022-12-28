@@ -34,31 +34,21 @@ export const CartWrapper = styled.div`
   ${pointer};
 `;
 
-export const Nav = styled.nav<{ borderBottom?: boolean; center?: boolean }>`
+export const Nav = styled.nav<{}>`
   ${flexRow};
   align-items: center;
-  justify-content: ${(props) => (props.center && "center") ?? "space-between"};
+  justify-content: space-between;
   width: 100%;
   height: 96px;
-  border-bottom: ${(props) =>
-    props.borderBottom && `1px solid ${props.theme.colors.white}`};
-
-  @media (${device.tablet}) {
-    justify-content: space-between;
-  }
+  border-bottom: 1px solid ${(props) => props.theme.colors.white};
 `;
 
-export const FooterNav = styled.nav<{
-  borderBottom?: boolean;
-  center?: boolean;
-}>`
+export const FooterNav = styled.nav<{}>`
   ${flexColBetween};
   gap: 2rem;
   align-items: center;
-  justify-content: ${(props) => (props.center && "center") ?? "space-between"};
+  justify-content: center;
   width: 100%;
-  border-bottom: ${(props) =>
-    props.borderBottom && `1px solid ${props.theme.colors.white}`};
 
   @media (${device.tablet}) {
     ${flexColStartBetween};

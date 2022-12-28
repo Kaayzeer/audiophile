@@ -13,7 +13,6 @@ export const Container = styled.div<{
   flexColBetween?: boolean;
 }>`
   ${styles.flexRow}
-
   margin: 0 auto;
   justify-content: center;
   width: min(100%, ${(props) => props.theme.maxWidth.container});
@@ -24,18 +23,12 @@ export const Container = styled.div<{
 
 export const FooterContainer = styled.div<{
   backgroundColor?: string;
-  hero?: boolean;
-  height?: string;
-  flexColBetween?: boolean;
 }>`
   ${styles.flexRow}
   padding: 2rem;
   margin: 0 auto;
   justify-content: center;
   width: min(100%, ${(props) => props.theme.maxWidth.container});
-  background-color: ${(props) => props.backgroundColor};
-  height: ${(props) => props.height};
-  ${(props) => props.hero && styles.hero};
 `;
 
 export const MaxWidth = styled.section<{

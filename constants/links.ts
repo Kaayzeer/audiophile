@@ -1,5 +1,3 @@
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
-
 const Links = {
   HOME: "home",
   HEADPHONES: "headphones",
@@ -31,16 +29,22 @@ export const productLinks: Record<string, any> = [
     img: productImages.HEADPHONES,
     name: productLinkNames.HEADPHONES,
     text: productLinkNames.HEADPHONES,
+    width: 79.92,
+    height: 104,
   },
   {
     img: productImages.SPEAKERS,
     name: productLinkNames.SPEAKERS,
     text: productLinkNames.SPEAKERS,
+    width: 84.04,
+    height: 101,
   },
   {
     img: productImages.EARPHONES,
     name: productLinkNames.EARPHONES,
     text: productLinkNames.EARPHONES,
+    width: 103,
+    height: 104,
   },
 ];
 
@@ -48,4 +52,6 @@ export type ProductLinks = {
   name: string;
   img: string;
   text: string;
+  width: number;
+  height: number;
 };

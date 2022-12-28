@@ -18,15 +18,10 @@ export const Container: FC<Props> = ({
   backgroundColor,
   children,
   hero,
-  height,
   flexColAround,
 }) => {
   return (
-    <Layout.Container
-      backgroundColor={backgroundColor}
-      hero={hero}
-      height={height}
-    >
+    <Layout.Container backgroundColor={backgroundColor} hero={hero}>
       <Layout.MaxWidth flexColAround={flexColAround}>
         {children}
       </Layout.MaxWidth>

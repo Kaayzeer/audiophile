@@ -7,19 +7,15 @@ import Logo from "../../public/assets/shared/desktop/logo.svg";
 import Hamburger from "../../public/assets/shared/tablet/icon-hamburger.svg";
 import { navLinks } from "../../constants/links";
 
-type Props = {
-  borderBottom?: boolean;
-  isFooter?: boolean;
-};
+type Props = {};
 
-export const Navbar: FC<Props> = ({ borderBottom, isFooter }) => {
+export const Navbar: FC<Props> = ({}) => {
   return (
-    <N.Nav borderBottom={borderBottom}>
-      {!isFooter && (
-        <N.HamburgerWrapper>
-          <Image src={Hamburger} alt="page-logo" />
-        </N.HamburgerWrapper>
-      )}
+    <N.Nav>
+      <N.HamburgerWrapper>
+        <Image src={Hamburger} alt="page-logo" />
+      </N.HamburgerWrapper>
+
       <N.LogoWrapper>
         <Image src={Logo} alt="page-logo" />
       </N.LogoWrapper>
@@ -39,9 +35,9 @@ export const Navbar: FC<Props> = ({ borderBottom, isFooter }) => {
   );
 };
 
-export const FooterNav: FC<Props> = ({ borderBottom, isFooter }) => {
+export const FooterNav: FC<Props> = ({}) => {
   return (
-    <N.FooterNav center>
+    <N.FooterNav>
       <N.LogoWrapper>
         <Image src={Logo} alt="page-logo" />
       </N.LogoWrapper>

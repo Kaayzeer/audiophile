@@ -7,6 +7,7 @@ import * as L from "../../../layouts/styled";
 import { ProductLinks } from "../../../constants/links";
 import { GridContainer } from "../../../layouts/Container";
 import { theme } from "../../../styles/theme";
+import { device } from "../../../styles/breakpoints";
 
 type Props = {
   link: ProductLinks;
@@ -16,7 +17,13 @@ const ProductLinkCards: FC<Props> = ({ link }) => {
   return (
     <P.CardWrapper>
       <L.ImageWrapper productLinkCardSection>
-        <Image src={`/${link.img}`} alt={link.name} width={125} height={160} />
+        <Image
+          src={`/${link.img}`}
+          alt={link.name}
+          width={link.width}
+          height={link.height}
+          sizes={`${device.laptop} 100vw`}
+        />
       </L.ImageWrapper>
       <Button tertiary>
         shop
