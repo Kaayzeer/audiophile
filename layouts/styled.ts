@@ -2,6 +2,9 @@ import Image from "next/image";
 import ImageYX1Mobile from "../public/assets/home/mobile/image-earphones-yx1.jpg";
 import ImageYX1Tablet from "../public/assets/home/tablet/image-earphones-yx1.jpg";
 import ImageYX1Desktop from "../public/assets/home/desktop/image-earphones-yx1.jpg";
+import ImageBestGearMobile from "../public/assets/shared/mobile/image-best-gear.jpg";
+import ImageBestGearTablet from "../public/assets/shared/tablet/image-best-gear.jpg";
+import ImageBestGearDesktop from "../public/assets/shared/desktop/image-best-gear.jpg";
 import styled from "styled-components";
 import { device } from "../styles/breakpoints";
 import * as styles from "../styles/styledCss";
@@ -89,14 +92,14 @@ export const ArticleWrapper = styled.article<{
 
   @media (${device.tablet}) {
     margin-left: ${(props) => props.marginLeft && "6rem"};
-    max-width: 23.7rem;
+
     align-self: center;
   }
 
   @media (${device.laptop}) {
     ${styles.flexColStartBetween}
-
-    max-width: 25rem;
+    max-width: 50%;
+    padding-right: 2rem;
     text-align: left;
     align-self: ${(props) => props.alignSelf ?? "center"};
   }
@@ -149,7 +152,6 @@ export const ArticleHeaderFour = styled.h4``;
 
 export const ArticleBody = styled.p`
   margin-bottom: 1rem;
-  max-width: 21.8rem;
 `;
 
 export const ArticleFooterBody = styled.p`
@@ -207,6 +209,25 @@ export const ImageYX1 = styled.picture`
   }
 `;
 
+export const ImageBestGear = styled.picture`
+  width: 100%;
+  height: 300px;
+  background-image: url(${ImageBestGearMobile.src});
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+
+  @media (${device.tablet}) {
+    background-image: url(${ImageBestGearTablet.src});
+  }
+  @media (${device.laptop}) {
+    background-image: url(${ImageBestGearDesktop.src});
+    height: 588px;
+    max-width: 540px;
+    margin-left: auto;
+  }
+`;
+
 export const ImageMobile = styled(Image)`
   border-radius: 0.5rem;
   @media (${device.tablet}) {
@@ -236,10 +257,12 @@ export const Divider = styled.div<{ size: string }>`
 `;
 
 export const Section = styled.section<{
+  mobileFlexColReverse?: boolean;
   mobileFlexColBetween?: boolean;
   mobileFlexRowCenter?: boolean;
   mobileFlexRowBetween?: boolean;
   laptopFlexRowCenter?: boolean;
+  laptopFlexRowBetween?: boolean;
   mobileFlexRowStartCenter?: boolean;
   tableSpeaker?: boolean;
   backgroundColor?: string;
@@ -250,7 +273,7 @@ export const Section = styled.section<{
   ${(props) => props.mobileFlexRowCenter && styles.flexRowCenter}
   ${(props) => props.mobileFlexColBetween && styles.flexColBetween}
   ${(props) => props.mobileFlexRowBetween && styles.flexRowBetween}
-
+  ${(props) => props.mobileFlexColReverse && styles.flexColReverse}
   ${(props) => props.tableSpeaker && styles.tableSpeaker};
   ${(props) => props.speakerImgSection && styles.speakerImgSection};
 
@@ -260,5 +283,6 @@ export const Section = styled.section<{
 
   @media (${device.laptop}) {
     ${(props) => props.laptopFlexRowCenter && styles.flexRowCenter}
+    ${(props) => props.laptopFlexRowBetween && styles.flexRowBetween}
   }
 `;

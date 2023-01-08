@@ -1,7 +1,6 @@
-import { NodeNextRequest } from "next/dist/server/base-http/node";
-import { MiddlewareNotFoundError } from "next/dist/shared/lib/utils";
 import { createGlobalStyle } from "styled-components";
 import { colors } from "./colors";
+import { device } from "./breakpoints";
 
 export const theme = {
   maxWidth: {

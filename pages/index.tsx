@@ -118,7 +118,8 @@ export default function Home() {
         <L.Section
           backgroundColor={colors.white}
           height={theme.height.xLarge}
-          mobileFlexRowBetween
+          mobileFlexColReverse
+          laptopFlexRowBetween
         >
           <L.ArticleWrapper>
             <L.ArticleHeaderTwo>
@@ -135,12 +136,7 @@ export default function Home() {
             </L.ArticleBody>
           </L.ArticleWrapper>
           <L.ImageWrapper>
-            <Image
-              src={BestGear}
-              alt="best-gear-img"
-              width={540}
-              height={588}
-            />
+            <L.ImageBestGear />
           </L.ImageWrapper>
         </L.Section>
       </Container>

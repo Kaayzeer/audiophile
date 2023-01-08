@@ -50,6 +50,11 @@ export const flexColBetween = css`
   justify-content: space-between;
 `;
 
+export const flexColReverse = css`
+  display: flex;
+  flex-direction: column-reverse;
+`;
+
 export const flexColStartBetween = css`
   display: flex;
   flex-direction: column;
