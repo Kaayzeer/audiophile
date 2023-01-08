@@ -1,3 +1,7 @@
+import Image from "next/image";
+import ImageYX1Mobile from "../public/assets/home/mobile/image-earphones-yx1.jpg";
+import ImageYX1Tablet from "../public/assets/home/tablet/image-earphones-yx1.jpg";
+import ImageYX1Desktop from "../public/assets/home/desktop/image-earphones-yx1.jpg";
 import styled from "styled-components";
 import { device } from "../styles/breakpoints";
 import * as styles from "../styles/styledCss";
@@ -56,37 +60,42 @@ export const ProductGridContainer = styled.div<{
 `;
 
 export const GridContainer = styled.div<{
-  grid?: number;
+  gridOneMobile?: boolean;
+  gridTwoTablet?: boolean;
   gap?: string;
 }>`
   display: grid;
-  grid-template-columns: repeat(${(props) => props.grid}, 1fr);
+  grid-template-columns: ${(props) => props.gridOneMobile && "repeat( 1, 1fr)"};
   gap: ${(props) => props.gap};
 
-  /*   @media (${device.tablet}) {
-    grid-template-columns: repeat(${(props) => props.responsive && 3}, 1fr);
-    gap: ${(props) => props.responsive && props.theme.gap.large};
-  } */
+  @media (${device.tablet}) {
+    grid-template-columns: ${(props) =>
+      props.gridTwoTablet && "repeat( 2, 1fr)"};
+  }
 `;
 
 export const ArticleWrapper = styled.article<{
   color?: string;
-  marginLeft?: string;
+  marginLeft?: boolean;
   alignSelf?: string;
+  YX1Earphones?: boolean;
 }>`
   ${styles.flexColBetween}
+  ${(props) => props.YX1Earphones && styles.YX1Earphones};
   gap: ${(props) => props.theme.gap.primary};
   color: ${(props) => props.color};
   text-align: center;
+  margin-left: ${(props) => props.marginLeft && "1.5rem"};
 
   @media (${device.tablet}) {
+    margin-left: ${(props) => props.marginLeft && "6rem"};
     max-width: 23.7rem;
     align-self: center;
   }
 
   @media (${device.laptop}) {
     ${styles.flexColStartBetween}
-    margin-left: ${(props) => props.marginLeft};
+
     max-width: 25rem;
     text-align: left;
     align-self: ${(props) => props.alignSelf ?? "center"};
@@ -168,10 +177,58 @@ export const ArticleHeaderSix = styled.h6``;
 
 export const ImageWrapper = styled.picture<{
   productLinkCardSection?: boolean;
-  speakerImgSection?: boolean;
+  speakerImgWrapper?: boolean;
+  minHeight?: string;
 }>`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  ${(props) => props.minHeight}
   ${(props) => props.productLinkCardSection && styles.productLinkCardSection}
-  ${(props) => props.speakerImgSection && styles.speakerImgSection}
+  ${(props) => props.speakerImgWrapper && styles.speakerImgWrapper}
+`;
+
+export const ImageYX1 = styled.picture`
+  width: 100%;
+  height: 200px;
+  background-image: url(${ImageYX1Mobile.src});
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+
+  @media (${device.tablet}) {
+    background-image: url(${ImageYX1Tablet.src});
+    height: 320px;
+  }
+  @media (${device.laptop}) {
+    background-image: url(${ImageYX1Desktop.src});
+  }
+`;
+
+export const ImageMobile = styled(Image)`
+  border-radius: 0.5rem;
+  @media (${device.tablet}) {
+    display: none;
+  }
+`;
+export const ImageTablet = styled(Image)`
+  border-radius: 0.5rem;
+  display: none;
+  @media (${device.tablet}) {
+    display: block;
+  }
+  @media (${device.laptop}) {
+    display: none;
+  }
+`;
+export const ImageLaptop = styled(Image)`
+  border-radius: 0.5rem;
+  display: none;
+  @media (${device.laptop}) {
+    display: block;
+  }
 `;
 
 export const Divider = styled.div<{ size: string }>`
@@ -179,18 +236,29 @@ export const Divider = styled.div<{ size: string }>`
 `;
 
 export const Section = styled.section<{
-  center?: boolean;
-  startCenter?: boolean;
-  flexRowBetween?: boolean;
+  mobileFlexColBetween?: boolean;
+  mobileFlexRowCenter?: boolean;
+  mobileFlexRowBetween?: boolean;
+  laptopFlexRowCenter?: boolean;
+  mobileFlexRowStartCenter?: boolean;
   tableSpeaker?: boolean;
   backgroundColor?: string;
   height?: string;
+  speakerImgSection?: boolean;
 }>`
-  ${(props) => props.flexRowBetween && styles.flexRowBetween}
-  ${(props) => props.center && styles.flexRowCenter}
-  ${(props) => props.startCenter && styles.flexRowStartCenter}
+  ${(props) => props.mobileFlexRowStartCenter && styles.flexRowStartCenter}
+  ${(props) => props.mobileFlexRowCenter && styles.flexRowCenter}
+  ${(props) => props.mobileFlexColBetween && styles.flexColBetween}
+  ${(props) => props.mobileFlexRowBetween && styles.flexRowBetween}
+
   ${(props) => props.tableSpeaker && styles.tableSpeaker};
+  ${(props) => props.speakerImgSection && styles.speakerImgSection};
+
   border-radius: ${(props) => props.theme.borderRadius};
   background-color: ${(props) => props.backgroundColor};
   height: ${(props) => props.height};
+
+  @media (${device.laptop}) {
+    ${(props) => props.laptopFlexRowCenter && styles.flexRowCenter}
+  }
 `;

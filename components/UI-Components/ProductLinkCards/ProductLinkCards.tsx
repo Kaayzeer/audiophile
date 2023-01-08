@@ -22,7 +22,6 @@ const ProductLinkCards: FC<Props> = ({ link }) => {
           alt={link.name}
           width={link.width}
           height={link.height}
-          sizes={`${device.laptop} 100vw`}
         />
       </L.ImageWrapper>
       <Button tertiary>

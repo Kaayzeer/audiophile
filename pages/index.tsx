@@ -9,8 +9,9 @@ import Layout from "../layouts/Layout";
 import { colors } from "../styles/colors";
 import Button from "../components/UI-Components/Buttons/Button";
 import ProductLinkCards from "../components/UI-Components/ProductLinkCards/ProductLinkCards";
-import InEar from "../public/assets/home/desktop/image-earphones-yx1.jpg";
-import Speaker from "../public/assets/home/desktop/image-speaker-zx9.png";
+import SpeakerMobile from "../public/assets/home/mobile/image-speaker-zx9.png";
+import SpeakerTablet from "../public/assets/home/tablet/image-speaker-zx9.png";
+import SpeakerLaptop from "../public/assets/home/desktop/image-speaker-zx9.png";
 import BestGear from "../public/assets/shared/desktop/image-best-gear.jpg";
 import Image from "next/image";
 import { theme } from "../styles/theme";
@@ -51,18 +52,31 @@ export default function Home() {
       <Container>
         <L.Section
           backgroundColor={colors.midBrown}
-          height={theme.height.large}
-          center
+          mobileFlexColBetween
+          laptopFlexRowCenter
+          speakerImgSection
         >
-          <L.ImageWrapper speakerImgSection>
-            <Image
-              src={Speaker}
+          <L.ImageWrapper speakerImgWrapper>
+            <L.ImageMobile
+              src={SpeakerMobile}
+              alt="standing-speaker"
+              width={172}
+              height={207}
+            />
+            <L.ImageTablet
+              src={SpeakerTablet}
+              alt="standing-speaker"
+              width={197}
+              height={237}
+            />
+            <L.ImageLaptop
+              src={SpeakerLaptop}
               alt="standing-speaker"
               width={300}
               height={400}
             />
           </L.ImageWrapper>
-          <L.ArticleWrapper>
+          <L.ArticleWrapper color={colors.white}>
             <L.ArticleHeader>ZX9 SPEAKER</L.ArticleHeader>
             <L.ArticleBody>
               Upgrade to premium speakers that are phenomenally built to deliver
@@ -74,8 +88,12 @@ export default function Home() {
       </Container>
       <L.Divider size={theme.dividerSize.small} />
       <Container>
-        <L.Section tableSpeaker startCenter height={theme.height.medium}>
-          <L.ArticleWrapper marginLeft="6rem">
+        <L.Section
+          tableSpeaker
+          mobileFlexRowStartCenter
+          height={theme.height.medium}
+        >
+          <L.ArticleWrapper marginLeft>
             <L.ArticleHeaderFour>ZX7 SPEAKER</L.ArticleHeaderFour>
             <Button secondary>See Product</Button>
           </L.ArticleWrapper>
@@ -83,12 +101,12 @@ export default function Home() {
       </Container>
       <L.Divider size={theme.dividerSize.small} />
       <Container>
-        <GridContainer grid={2} gap={theme.gap.secondary}>
+        <GridContainer gridOneMobile gridTwoTablet gap={theme.gap.secondary}>
           <L.ImageWrapper>
-            <Image src={InEar} alt="in-ear-earphones" />
+            <L.ImageYX1 />
           </L.ImageWrapper>
-          <L.Section center backgroundColor={colors.greySilver}>
-            <L.ArticleWrapper>
+          <L.Section mobileFlexRowCenter backgroundColor={colors.greySilver}>
+            <L.ArticleWrapper YX1Earphones>
               <L.ArticleHeaderFour>YX1 EARPHONES</L.ArticleHeaderFour>
               <Button secondary>See Product</Button>
             </L.ArticleWrapper>
@@ -100,7 +118,7 @@ export default function Home() {
         <L.Section
           backgroundColor={colors.white}
           height={theme.height.xLarge}
-          flexRowBetween
+          mobileFlexRowBetween
         >
           <L.ArticleWrapper>
             <L.ArticleHeaderTwo>

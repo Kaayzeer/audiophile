@@ -30,14 +30,12 @@ export const theme = {
   },
   buttons: {
     primary: {
-      width: "min(100%, 15.9375rem)",
       padding: "0.9375rem 1.875rem",
       backgroundColor: colors.midBrown,
       color: colors.white,
       border: "none",
     },
     secondary: {
-      width: "min(100%, 15.9375rem)",
       padding: "0.9375rem 1.875rem",
       backgroundColor: colors.transparent,
       border: `1px solid  ${colors.black}`,
@@ -48,7 +46,6 @@ export const theme = {
       border: "none",
     },
     fourthly: {
-      width: "min(100%, 15.9375rem)",
       padding: "0.9375rem 1.875rem",
       backgroundColor: colors.black,
       color: colors.white,
@@ -89,6 +86,7 @@ export const theme = {
       textTransform: "uppercase",
       lineHeight: "38px",
       letterSpacing: "2px",
+      fontWeight: 700,
     },
     h5: {
       fontSize: "1.5rem",

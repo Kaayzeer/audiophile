@@ -3,7 +3,8 @@ import * as Layout from "./styled";
 
 type Props = {
   gap?: string;
-  grid?: number;
+  gridOneMobile?: boolean;
+  gridTwoTablet?: boolean;
   responsive?: boolean;
   backgroundColor?: string;
   children?: ReactNode;
@@ -52,9 +53,18 @@ export const ProductGridContainer: FC<Props> = ({ responsive, children }) => {
   );
 };
 
-export const GridContainer: FC<Props> = ({ grid, gap, children }) => {
+export const GridContainer: FC<Props> = ({
+  gridOneMobile,
+  gridTwoTablet,
+  gap,
+  children,
+}) => {
   return (
-    <Layout.GridContainer grid={grid} gap={gap}>
+    <Layout.GridContainer
+      gridOneMobile={gridOneMobile}
+      gridTwoTablet={gridTwoTablet}
+      gap={gap}
+    >
       {children}
     </Layout.GridContainer>
   );
