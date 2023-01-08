@@ -10,6 +10,8 @@ import {
   flexColStartBetween,
 } from "../../styles/styledCss";
 import { device } from "../../styles/breakpoints";
+import { colors } from "../../styles/colors";
+import Image from "next/image";
 
 export const Container = styled.header<{}>`
   ${flexCol};
@@ -33,6 +35,7 @@ export const CartWrapper = styled.div`
 `;
 
 export const Nav = styled.nav<{}>`
+  position: relative;
   ${flexRow};
   align-items: center;
   justify-content: space-between;
@@ -81,4 +84,32 @@ export const FooterLinkWrapper = styled.ul`
 
 export const Links = styled(Link)`
   ${buttonAndNavStyles}
+`;
+
+export const HamburgerMenuBackDrop = styled.div`
+  position: fixed;
+  top: 95px;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: scroll;
+  background: #979797;
+  z-index: 10;
+
+  @media (${device.tablet}) {
+    display: none;
+  }
+`;
+
+export const HamburgerMenuWrapper = styled.nav`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+  background-color: ${colors.white};
+  height: 80%;
+  padding-top: 1rem;
 `;
